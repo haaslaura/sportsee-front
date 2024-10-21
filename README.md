@@ -8,21 +8,22 @@ Ce repository contient la version front-end du projet.
 
 Pour lancer le projet en dev mode : `yarn start`
 
-Ouvrez [http://localhost:3000](http://localhost:3000) pour l'afficher dans votre navigateur.
+Ouvrez [http://localhost:3001](http://localhost:3001) pour l'afficher dans votre navigateur.
 
 La page se rechargera lorsque vous effectuerez des modifications. Vous pourrez également voir les erreurs dans la console.
 
 ### Backend
 Cloner le repository via :
 
-git clone https://github.com/OpenClassrooms-Student-Center/SportSee.git
+`git clone https://github.com/OpenClassrooms-Student-Center/SportSee.git`
 
 Lancer le backend comme suit :
 
-`instructions (à venir)`
-L'API du backend sera alors accessible en local via l'URL :
+Pour installer les dépendances : `yarn`
 
-http://localhost:3000
+Pour lancer l'API : `yarn dev`
+
+L'API du backend sera alors accessible en local via l'URL [http://localhost:3000](http://localhost:3000)
 
 Documentation et liste des endpoints [ici](https://github.com/OpenClassrooms-Student-Center/SportSee?tab=readme-ov-file#1-general-information).
 
