@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Projet 12, formation Openclassrooms - Parcours Front-end (en cours)
+## SportSee
+Développez un tableau de bord d'analytics avec React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Utilisation
+### Frontend
+Ce repository contient la version front-end du projet.
 
-## Available Scripts
+Pour lancer le projet en dev mode : `yarn start`
 
-In the project directory, you can run:
+Ouvrez [http://localhost:3000](http://localhost:3000) pour l'afficher dans votre navigateur.
 
-### `yarn start`
+La page se rechargera lorsque vous effectuerez des modifications. Vous pourrez également voir les erreurs dans la console.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
+Cloner le repository via :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+git clone https://github.com/OpenClassrooms-Student-Center/SportSee.git
 
-### `yarn test`
+Lancer le backend comme suit :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`instructions (à venir)`
+L'API du backend sera alors accessible en local via l'URL :
 
-### `yarn build`
+http://localhost:3000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Documentation et liste des endpoints [ici](https://github.com/OpenClassrooms-Student-Center/SportSee?tab=readme-ov-file#1-general-information).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Scénario
+Vous travaillez en tant que développeur chez SportSee, une startup dédiée au coaching sportif. L’entreprise va lancer une nouvelle version de la page profil de l’utilisateur, lui permettant de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées. Vous êtes en charge de développer cette nouvelle feature.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Objectifs du projet
+Développer la page profil de l'utilisateur, en intégrant des éléments graphiques avancés tels que des graphiques et des diagrammes pour présenter les données d'analyse sportive.
 
-### `yarn eject`
+## Objectifs Pédagogiques
+- Développer des éléments graphiques avancés à l'aide de bibliothèques JavaScript
+- Interagir avec un service Web
+- Assurer la qualité des données d'une application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🛠 Outils
+- React
+- Create React App
+- Recharts
