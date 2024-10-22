@@ -1,0 +1,21 @@
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+
+
+@use "./base/index" as base;
+
+@use "./layouts/header";
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+
+    body {
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

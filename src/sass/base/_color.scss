@@ -1,0 +1,34 @@
+/*******************/
+/*** MAIN COLOR ****/
+/*******************/
+
+// Fonts and background
+$color-main: #FF0000;
+$color-dark: #020203;
+
+// Charts
+$grey-dark: #282D30;
+$red-dark: #E60000;
+
+$icon-theme: (
+    "calories": #FF0000,
+    "proteins": #4AB8FF,
+    "glucides": #FDCC0C,
+    "lipid": #FD5181,
+);
+
+/*
+NOTES :
+
+rouge : #FF0101; ou #FF0000;
+rouge foncé : #E60000; (pour les charts)
+
+noir : #020203;
+gris foncé : #282D30 (pour les charts)
+
+4 autres couleurs, pour les icones : foncé/clair
+rouge > FF0000/opacité à 6,61
+bleu > 4AB8FF/opacité à 10
+jaune > FDCC0C/F9CE23
+Rose > FD5181/opacité à 10
+*/
