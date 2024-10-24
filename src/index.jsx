@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import App from './pages/App';
-import Header from './layouts/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './assets/style.css'
+
+import Header from './layouts/Header';
+import Home from './pages/Home';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,8 +15,7 @@ root.render(
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<App />} />
-        {/* <Route path="*" element={<Error />} /> */}
+        <Route path="/user/:id" element={<Home />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>
