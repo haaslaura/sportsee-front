@@ -365,6 +365,9 @@ template {
 /********************/
 /**** MAIN FONTS ****/
 /********************/
+/*********************/
+/***** VARIABLES *****/
+/*********************/
 /********* Be careful **********/
 /* @import usage is deprecated */
 /*******************************/
@@ -404,16 +407,84 @@ header .navbar ul a {
   font-size: 1.5rem;
 }
 
-main {
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+.second-navbar {
+  height: 100%;
+  width: 117px;
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #020203;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+}
+.second-navbar .second-navbar__menu {
+  margin-left: auto;
+  margin-right: auto;
+}
+.second-navbar .second-navbar__menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
-main div {
-  background-color: aquamarine;
-  max-width: 906px;
-  max-height: 688px;
-  height: 80vh;
+.second-navbar .second-navbar__copyright {
+  position: absolute;
+  bottom: 0;
+  left: 52.5px;
+  transform-origin: top left;
+  transform: rotate(-90deg);
+  margin: 0;
+  color: white;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+main {
+  height: calc(100vh - 91px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+}
+main .main-container {
+  border: 1px solid salmon;
   width: 100%;
+  max-width: 907px;
+}
+
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+.sports-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 6px;
+  height: 64px;
+  width: 64px;
+}
+.sports-icon:hover {
+  outline: none;
+  background-color: rgb(241, 239, 239);
+}
+.sports-icon:focus-visible {
+  outline: 2px solid #FF0000;
+}
+.sports-icon img {
+  height: 32px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 * {

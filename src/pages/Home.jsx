@@ -20,7 +20,7 @@ function App() {
 
 
   return (
-    <main className="App">
+    <div className="home">
       <div className="header-message">
         <h1>Bonjour { }</h1>
         <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
@@ -28,7 +28,7 @@ function App() {
       <div className="activity-tracking">
 
       </div>
-    </main>
+    </div>
   )
 }
 

@@ -1,0 +1,27 @@
+@use "../base/index" as base;
+
+.sports-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 6px;
+    height: 64px;
+    width: 64px;
+
+    &:hover {
+        outline: none;
+        background-color: rgb(241, 239, 239);
+    }
+
+    &:focus-visible {
+        outline: 2px solid base.$color-main;
+    }
+
+    img {
+        height: 32px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

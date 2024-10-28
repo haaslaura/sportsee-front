@@ -6,8 +6,12 @@
 @use "./base/index" as base;
 
 @use "./layouts/header";
+@use "./layouts/secondNavBar";
+@use "./layouts/layout";
 
-@use "./pages/app";
+@use "./components/sportsicon";
+
+@use "./pages/home";
 
 * {
     font-family: "Roboto", sans-serif;

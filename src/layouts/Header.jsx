@@ -5,7 +5,7 @@ function Header() {
     return (
         <header>
             <img className='mainlogo' src={logo} alt="Logo SportSee" />
-            <nav className='navbar'>
+            <nav className='navbar' aria-label='Menu principal'>
                 <ul>
                     <li>
                         <Link>Accueil</Link>

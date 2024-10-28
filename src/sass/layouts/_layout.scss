@@ -1,0 +1,17 @@
+@use "../base/index" as base;
+
+main {
+    height: calc(100vh - base.$header-height);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    position: relative; // to fix the second navbar
+
+    .main-container {
+        border: 1px solid salmon;
+        width: 100%;
+        max-width: 907px;
+    }
+}
