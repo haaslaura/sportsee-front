@@ -14,22 +14,11 @@ const isMock = true // switch entre les données mockées et l'API
  * @returns {Promise<Object>} data: informations of the user
  */
 async function getUserInformations(id) {
-  if (isMock === true) {
-    // console.log('users', users)
-    return users
-  } else {
-    try {
-      const response = await fetch(`${BASE_URL}/${id}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      throw error;
-    }
+
+  if (isMock) {
+    return { data: users }
   }
+  return {url: `${BASE_URL}/${id}`}
 }
 
 /**
@@ -38,23 +27,14 @@ async function getUserInformations(id) {
  * @returns {Promise<Object>} data: user activity information
  */
 async function getUserActivityInformations(id) {
-  if (isMock === true) {
-    // console.log('activities', activities);
-    return activities
-  } else {
-    try {
-      const response = await fetch(`${BASE_URL}/${id}/activity`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      throw error;
-    }
+
+  if (isMock) {
+    return { data: activities }
   }
+
+  return { url: `${BASE_URL}/${id}/activity` }
 }
+
 
 /**
  * Get user AverageSessions
@@ -62,22 +42,12 @@ async function getUserActivityInformations(id) {
  * @returns {Promise<Object>} data: user AverageSessions
  */
 async function getUserAverageSessions(id) {
-  if (isMock === true) {
-    // console.log('averageSessions', averageSessions)
-    return averageSessions
-  } else {
-    try {
-      const response = await fetch(`${BASE_URL}/${id}/average-sessions`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      throw error;
-    }
+
+  if (isMock) {
+    return { data: averageSessions }
   }
+
+  return { url: `${BASE_URL}/${id}/average-sessions` }
 }
 
 /**
@@ -86,22 +56,12 @@ async function getUserAverageSessions(id) {
  * @returns {Promise<Object>} data : user performance
  */
 async function getUserPerformance(id) {
-  if (isMock === true) {
-    // console.log('performances', performances);
-    return performances
-  } else {
-    try {
-      const response = await fetch(`${BASE_URL}/${id}/performance`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      throw error;
-    }
+
+  if (isMock) {
+    return { data: performances }
   }
+
+  return { url: `${BASE_URL}/${id}/performance` }
 }
 
 const Api = {
