@@ -1,35 +1,42 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"
 import { useFetch } from "../utils/hooks/useFetch"
 
-function App() {
+import toogleAPI from "../utils/normalizeData/toogleAPI"
+// import modelisationData from "../utils/normalizeData/modelisationData"
 
-  let { id } = useParams
+function Home() {
 
-  const { data } = useFetch('./.')
-  // const { data } = useFetch('http://localhost:3000/user/18')
+  let { id } = useParams()
+  
+  const { data, isLoading, error  } = useFetch(toogleAPI.getUserInformations)
   console.log(data);
 
-  const user = data.find(dataUser => dataUser.id === id);
+  // const user = data.find(dataUser => dataUser.id === id);
 
   // Handling property id errors
-  if (!user) {
-    return (
-      <div>Oupsi, y'a personne ici</div>
-    )
-  }
+  // if (!user) {
+  //   return (
+  //     <div>Oupsi, y'a personne ici</div>
+  //   )
+  // }
 
 
   return (
-    <div className="home">
-      <div className="header-message">
-        <h1>Bonjour { }</h1>
+    <section className="container">
+      <div className="container__header">
+        <h1>Bonjour</h1>
         <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
-      <div className="activity-tracking">
-
-      </div>
-    </div>
+      <section className="container__tracking">
+        <div className="tracking">
+          {/* Intégrer les 4 charts */}
+        </div>
+        <div className="macro">
+          {/* intégrer les 4 composants macro */}
+        </div>
+      </section>
+    </section>
   )
 }
 
-export default App
+export default Home
