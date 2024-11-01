@@ -8,7 +8,7 @@ function Header() {
             <nav className='navbar' aria-label='Menu principal'>
                 <ul>
                     <li>
-                        <Link>Accueil</Link>
+                        <Link to="/">Accueil</Link>
                     </li>
                     <li>
                         <Link>Profil</Link>
