@@ -457,8 +457,11 @@ main {
 }
 main .main-container {
   border: 1px solid salmon;
-  width: 100%;
-  max-width: 907px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 /********* Be careful **********/
@@ -485,6 +488,13 @@ main .main-container {
   height: 32px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+.container .container__header span {
+  color: #FF0000;
 }
 
 * {

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Home from './Home';
 
+// File to be deleted before going online
 function Temporary() {
 
     return (
