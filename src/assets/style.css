@@ -490,6 +490,13 @@ main .main-container {
   margin-right: auto;
 }
 
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+.container .container__header span {
+  color: #FF0000;
+}
+
 * {
   font-family: "Roboto", sans-serif;
   font-style: normal;

@@ -1,0 +1,9 @@
+@use "../base/index" as base;
+
+.container {
+    .container__header {
+        span {
+            color: base.$color-main;
+        }
+    }
+}

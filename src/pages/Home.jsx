@@ -1,33 +1,50 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { useFetch } from "../utils/hooks/useFetch"
-import toogleAPI from "../utils/normalizeData/toogleAPI"
-// import modelisationData from "../utils/normalizeData/modelisationData"
+import dataRecovery from "../utils/dataRecovery"
 
 function Home() {
 
   let { id } = useParams()
+  const [user, setUser] = useState(null)
+  const [activities, setActivities] = useState(null)
+  const [performances, setPerformances] = useState(null)
+  const [averageSessions, setAverageSessions] = useState(null)
 
-  // État pour stocker l'input pour le hook useFetch
-  const [fetchInput, setFetchInput] = useState(null);
+/**
+   * Call the dataRecovery utils to recover the data that corresponds
+   ** @return {Object} Data
+   */
+   const fetchData = async () => {
+    try {
+      
+      const responseUser = await dataRecovery.getUserInformations(id)
+      setUser(responseUser)
+      
+      const responseUserActivityInformations = await dataRecovery.getActivities(id);
+      setActivities(responseUserActivityInformations)    
 
-  // Utilise useEffect pour appeler la fonction asynchrone et mettre à jour fetchInput
-  useEffect(() => {
-    async function getData() {
-      const apiData = await toogleAPI.getUserInformations(id);
-      setFetchInput(apiData);
+      const responseUserAverageSessions = await dataRecovery.getAverageSessions(id)
+      setAverageSessions(responseUserAverageSessions)
+      
+      const responseUserPerformance = await dataRecovery.getUserPerformances(id)
+      setPerformances(responseUserPerformance)
+
+    } catch (error) {
+      alert('Une erreur est survenue lors du chargement des données.');
     }
-    getData();
-  }, [id]);
+  }
 
+  useEffect(() => {
+    fetchData()
+  }, [])
 
-  const { data, isLoading, error  } = useFetch(fetchInput)
-
-  console.log(data);
-  console.log(useFetch(toogleAPI.getUserInformations(id)));
+  console.log(user);
+  console.log(activities);
+  console.log(performances);
+  console.log(averageSessions); // est encore marqué comme undifined
   
   // Handling property id errors
-  if (error) {
+  if (!user) {
     return (
       <div>Oupsi, y'a personne ici</div>
     )
@@ -36,7 +53,7 @@ function Home() {
   return (
     <section className="container">
       <div className="container__header">
-        <h1>Bonjour {data?.userInfos?.firstName}</h1>
+        <h1>Bonjour <span>{user?.userInfos?.firstName}</span></h1>
         <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <section className="container__tracking">
