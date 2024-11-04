@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types'
-import users from '../mocksdata/users.json'
-import activities from '../mocksdata/activities.json'
-import performances from '../mocksdata/performances.json'
-import averageSessions from '../mocksdata/averageSessions.json'
+import PropTypes from "prop-types"
+import users from "../mocksdata/users.json"
+import activities from "../mocksdata/activities.json"
+import performances from "../mocksdata/performances.json"
+import averageSessions from "../mocksdata/averageSessions.json"
 
-const BASE_URL = 'http://localhost:8000/user'
-const isMock = true // switch entre les données mockées et l'API
+const BASE_URL = "http://localhost:3000/user"
+const isMock = true // switch between the mocked data and the API
 
 /**
  * Get user informations
@@ -15,10 +15,9 @@ const isMock = true // switch entre les données mockées et l'API
 async function getUserInformations(inputId) {
 
   if (isMock) {
-    console.log("users: ", users)
-    
+    // console.log("users: ", users)
     const user = users.find(({ id }) => id === parseInt(inputId))
-    return user
+    return { data: user }
   
   } else {
     try {
@@ -28,7 +27,7 @@ async function getUserInformations(inputId) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json()
-      return data
+      return data      
 
     } catch (error) {
       console.error("Error fetching user data:", error)
@@ -47,7 +46,7 @@ async function getActivities(inputId) {
   if (isMock) {
     // console.log("activities: ", activities)
     const activity = activities.find(({userId}) => userId === parseInt(inputId))
-    return activity
+    return { data: activity}
     
   } else {
     try {
@@ -76,15 +75,15 @@ async function getAverageSessions(inputId) {
 
   if (isMock) {
     // console.log("averageSessions: ", averageSessions)
-    const average = averageSessions.find(({ userID }) => userID === parseInt(inputId))
-    return average
+    const average = averageSessions.find(({ userId }) => userId === parseInt(inputId))    
+    return { data: average}
 
   } else {
     try {
 
       const response = await fetch(`${BASE_URL}/${inputId}/average-sessions`)
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`)
       }
       const data = await response.json()
       return data
@@ -106,14 +105,14 @@ async function getUserPerformances(inputId) {
   if (isMock) {
     // console.log("performances: ", performances)
     const performance = performances.find(({ userId }) => userId === parseInt(inputId))
-    return performance
+    return { data: performance}
 
   } else {
     try {
 
       const response = await fetch(`${BASE_URL}/${inputId}/performance`)
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`)
       }
       const data = await response.json()
       return data
@@ -128,11 +127,11 @@ async function getUserPerformances(inputId) {
 const Api = {
   getUserInformations: PropTypes.func.isRequired,
   getActivities: PropTypes.func.isRequired,
-  getUserAverageSessions: PropTypes.func.isRequired,
-  getUserPerformance: PropTypes.func.isRequired
+  getAverageSessions: PropTypes.func.isRequired,
+  getUserPerformances: PropTypes.func.isRequired
 }
 
-Api.propTypes = Api;
+Api.propTypes = Api
 
 export default {
   getUserInformations,

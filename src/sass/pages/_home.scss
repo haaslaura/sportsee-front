@@ -5,5 +5,11 @@
         span {
             color: base.$color-main;
         }
+        a {
+            color: base.$color-main;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }

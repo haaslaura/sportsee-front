@@ -495,6 +495,12 @@ main .main-container {
 .container .container__header span {
   color: #FF0000;
 }
+.container .container__header a {
+  color: #FF0000;
+}
+.container .container__header a:hover {
+  text-decoration: underline;
+}
 
 /********* Be careful **********/
 /* @import usage is deprecated */
