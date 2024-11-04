@@ -12,6 +12,8 @@
 @use "./components/sportsicon";
 
 @use "./pages/home";
+@use "./pages/error";
+@use "./pages/temporary"; // To be deleted when the temporary demo page is no longer required
 
 * {
     font-family: "Roboto", sans-serif;
@@ -19,6 +21,10 @@
 
     body {
         width: 100%;
+    }
+
+    h1, h2 {    
+        font-weight: 500;
     }
 
     a {

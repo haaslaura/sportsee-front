@@ -1,0 +1,23 @@
+@use "../base/index" as base;
+
+.temporary-container {
+    
+    h1 {
+        span {
+            color: base.$color-main;
+        }
+    }
+
+    .temporary-container__links {
+        margin-top: 30px;
+
+        a {
+            color: base.$color-main;
+            margin-right: 30px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
