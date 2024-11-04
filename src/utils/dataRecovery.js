@@ -46,7 +46,7 @@ async function getActivities(inputId) {
   if (isMock) {
     // console.log("activities: ", activities)
     const activity = activities.find(({userId}) => userId === parseInt(inputId))
-    return { data: activity}
+    return { data: activity }
     
   } else {
     try {
@@ -76,7 +76,7 @@ async function getAverageSessions(inputId) {
   if (isMock) {
     // console.log("averageSessions: ", averageSessions)
     const average = averageSessions.find(({ userId }) => userId === parseInt(inputId))    
-    return { data: average}
+    return { data: average }
 
   } else {
     try {
@@ -105,7 +105,7 @@ async function getUserPerformances(inputId) {
   if (isMock) {
     // console.log("performances: ", performances)
     const performance = performances.find(({ userId }) => userId === parseInt(inputId))
-    return { data: performance}
+    return { data: performance }
 
   } else {
     try {
