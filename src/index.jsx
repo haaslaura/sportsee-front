@@ -22,7 +22,7 @@ root.render(
           {/* Temporary road for demonstration purposes */}
           <Route index element={<Temporary />} />
 
-          <Route path="/:id" element={<Home />} />
+          <Route path="/accueil/:id" element={<Home />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

@@ -11,13 +11,13 @@ function Header() {
                         <Link to="/">Accueil</Link>
                     </li>
                     <li>
-                        <Link>Profil</Link>
+                        <Link to="/profil">Profil</Link>
                     </li>
                     <li>
-                        <Link>Réglage</Link>
+                        <Link to="/reglages">Réglages</Link>
                     </li>
                     <li>
-                        <Link>Communauté</Link>
+                        <Link to="/communaute">Communauté</Link>
                     </li>
                 </ul>
             </nav>
