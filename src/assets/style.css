@@ -492,6 +492,99 @@ main .main-container {
 /********* Be careful **********/
 /* @import usage is deprecated */
 /*******************************/
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25%;
+}
+.loader-container .loader-dual-ring,
+.loader-container .loader-dual-ring:after {
+  box-sizing: border-box;
+}
+.loader-container .loader-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.loader-container .loader-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid #FF0000;
+  border-color: #FF0000 transparent #FF0000 transparent;
+  animation: loader-dual-ring 1.2s linear infinite;
+}
+@keyframes loader-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
+.infobox, .infobox__icon {
+  display: flex;
+  align-items: center;
+}
+
+.infobox {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  min-width: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.0196078431);
+  background: #FBFBFB;
+}
+.infobox .infobox__icon {
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 20px;
+}
+.infobox .infobox__icon.calories {
+  background: rgba(255, 0, 0, 0.11);
+}
+.infobox .infobox__icon.proteines {
+  background: rgba(74, 184, 255, 0.11);
+}
+.infobox .infobox__icon.carbohydrates {
+  background: rgba(249, 206, 35, 0.11);
+}
+.infobox .infobox__icon.lipids {
+  background: rgba(253, 81, 129, 0.11);
+}
+.infobox .infobox__icon img {
+  width: 1.25rem;
+}
+.infobox .infobox__text .infobox__text-data {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #282D30;
+  margin: 0 0 0.6rem 0;
+}
+.infobox .infobox__text .infobox__text-datatype {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: #74798C;
+  margin: 0;
+}
+
+.recharts-legend-wrapper ul {
+  justify-content: flex-end;
+}
+
+/********* Be careful **********/
+/* @import usage is deprecated */
+/*******************************/
 .container .container__header span {
   color: #FF0000;
 }
@@ -500,6 +593,25 @@ main .main-container {
 }
 .container .container__header a:hover {
   text-decoration: underline;
+}
+.container .container__tracking {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: start;
+  gap: 25px;
+}
+.container .container__tracking .tracking .tracking__daily {
+  background: #FBFBFB;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.container .container__tracking .macro {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 /********* Be careful **********/

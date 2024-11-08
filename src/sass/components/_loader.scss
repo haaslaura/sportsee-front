@@ -1,0 +1,41 @@
+@use "../base/index" as base;
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
+
+    .loader-dual-ring,
+    .loader-dual-ring:after {
+        box-sizing: border-box;
+        
+    }
+
+    .loader-dual-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+
+    .loader-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6.4px solid base.$color-main;
+        border-color: base.$color-main transparent base.$color-main transparent;
+        animation: loader-dual-ring 1.2s linear infinite;
+    }
+
+    @keyframes loader-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

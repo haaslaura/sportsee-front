@@ -1,5 +1,9 @@
-//Data modeling service
-import PropTypes from 'prop-types';
+/*****************************/
+/*** DATA MODELING SERVICE ***/
+/*****************************/
+
+import PropTypes from 'prop-types'
+
 
 /**
  * Calorie Conversion
@@ -7,8 +11,8 @@ import PropTypes from 'prop-types';
  * @returns {string}
  */
 export function converToKCal(calorie) {
-  const kiloCal = calorie / 1000;
-  return kiloCal.toFixed(3);
+  const kiloCal = calorie / 1000
+  return kiloCal.toFixed(3)
 }
 
 converToKCal.propTypes = {
@@ -21,9 +25,9 @@ converToKCal.propTypes = {
  * @returns {number}
  */
 export function converToPercent(score) {
-  // let nombre = score;
-  let pourcentage = score * 100; //Multiplication by 100 to convert to percentage
-  return pourcentage + '%';
+  // let nombre = score
+  let pourcentage = score * 100 //Multiplication by 100 to convert to percentage
+  return pourcentage + '%'
 }
 
 converToPercent.propTypes = {
@@ -37,16 +41,16 @@ converToPercent.propTypes = {
  */
 export function converToDate(date) {
   // Create a Date object from the character string representing the date
-  const maDate = new Date(date);
+  const myDate = new Date(date)
   // Extract the day of the month corresponding to this date
-  const jour = maDate.getDate();
+  const day = myDate.getDate()
   // Display the day of the month
-  return jour.toString();
+  return day.toString()
 }
 
 converToDate.propTypes = {
   date: PropTypes.string.isRequired
-};
+}
 
 /**
  * Function to display only the first letter of the retrieved day
@@ -63,8 +67,8 @@ export function getDayOfWeek(day) {
     'Samedi',
     'Dimanche'
   ];
-  const dayString = daysOfWeek[day - 1];
-  return dayString.charAt(0);
+  const dayString = daysOfWeek[day - 1]
+  return dayString.charAt(0)
 }
 
 getDayOfWeek.propTypes = {
@@ -84,18 +88,18 @@ export function translateEnglishToFrench(text) {
     speed: 'Vitesse',
     cardio: 'Cardio',
     endurance: 'Endurance'
-  };
+  }
 
   const translatedWords = text.split(' ').map((word) => {
-    const translatedWord = dictionary[word];
-    return translatedWord ? translatedWord : word;
+    const translatedWord = dictionary[word]
+    return translatedWord ? translatedWord : word
   });
-  return translatedWords.join(' ');
+  return translatedWords.join(' ')
 }
 
 translateEnglishToFrench.propTypes = {
   text: PropTypes.string.isRequired
-};
+}
 
 export default {
   converToKCal,
@@ -103,4 +107,4 @@ export default {
   converToDate,
   converToPercent,
   translateEnglishToFrench
-};
+}

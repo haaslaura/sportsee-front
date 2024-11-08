@@ -1,16 +1,20 @@
-function Macronutrients ({ icon, data, datatype }) {
+
+function Macronutrients ({ icon, data, text, typeClass }) {
 
      return (
-        <div className="infobox">
-            <div className="infobox__icon">
+        <li className="infobox">
+            <div className={`infobox__icon ${typeClass}`}>
                 <img src={icon} alt=""/>
             </div>
             <div className="infobox__text">
-                <p className="infobox__text-data">{data}</p>
-                <h4 className="infobox__text-datatype">{datatype}</h4>
-                
+                {typeClass === "calories" ? (
+                    <p className="infobox__text-data">{data}kCal</p>
+                ) : (
+                    <p className="infobox__text-data">{data}g</p>
+                )}
+                <h4 className="infobox__text-datatype">{text}</h4>  
             </div>
-        </div>
+        </li>
      )
 
 }

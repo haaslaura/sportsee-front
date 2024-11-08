@@ -1,0 +1,46 @@
+@use "../base/index" as base;
+
+.infobox, .infobox__icon {
+    display: flex;
+    align-items: center;
+}
+
+.infobox {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    width: 100%;
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px 0px #00000005;
+    background: #FBFBFB;
+
+    .infobox__icon {
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        margin: 20px;
+
+        &.calories {background: rgb(255 0 0 / 11%);}
+        &.proteines {background: rgb(74 184 255 / 11%);}
+        &.carbohydrates {background: rgb(249 206 35 / 11%);}
+        &.lipids {background: rgb(253 81 129 / 11%);}
+
+        img {width: 1.25rem;}
+    }
+
+    .infobox__text {
+        .infobox__text-data {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #282D30;
+            margin: 0 0 0.6rem 0;
+        }
+        .infobox__text-datatype {
+            font-size: 0.87rem;
+            font-weight: 500;
+            color: #74798C;
+            margin: 0;
+        }
+    }
+}

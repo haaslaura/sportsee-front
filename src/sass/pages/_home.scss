@@ -12,4 +12,27 @@
             }
         }
     }
+
+    .container__tracking {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        align-items: start;
+        gap: 25px;
+
+        .tracking {
+            .tracking__daily {
+                background: #FBFBFB;
+                border-radius: 5px;
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+        .macro {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+    }
 }

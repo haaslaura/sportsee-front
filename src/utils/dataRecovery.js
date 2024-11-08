@@ -1,3 +1,7 @@
+/*****************************/
+/*** DATA RECOVERY SERVICE ***/
+/*****************************/
+
 import PropTypes from "prop-types"
 import users from "../mocksdata/users.json"
 import activities from "../mocksdata/activities.json"
@@ -6,6 +10,23 @@ import averageSessions from "../mocksdata/averageSessions.json"
 
 const BASE_URL = "http://localhost:3000/user"
 const isMock = true // switch between the mocked data and the API
+
+/**
+ * Modify a key for a single user object
+ * @param {object} userObject single user
+ * @returns {object} single user with a modified key
+ */
+function renameKey(userObject) {
+
+  const keyValues = Object.keys(userObject).map(key => {
+    if (key === "todayScore") {
+      return { ["score"]: userObject[key] }
+    }
+    return { [key]: userObject[key] }
+  })
+  // return the modified object with its new key
+  return Object.assign({}, ...keyValues)
+}
 
 /**
  * Get user informations
@@ -17,17 +38,24 @@ async function getUserInformations(inputId) {
   if (isMock) {
     // console.log("users: ", users)
     const user = users.find(({ id }) => id === parseInt(inputId))
-    return { data: user }
+    const modifiedUser = renameKey(user)    
+    return { data: modifiedUser }
   
   } else {
     try {
-
       const response = await fetch(`${BASE_URL}/${inputId}`)
+
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`)
       }
-      const data = await response.json()
-      return data      
+      const apiData = await response.json()
+
+      // Access the object in {data} to modify the key
+      if (apiData.data) {
+        const modifiedUser = renameKey(apiData.data)        
+        return {data: modifiedUser}
+      }
+      return apiData
 
     } catch (error) {
       console.error("Error fetching user data:", error)
@@ -50,8 +78,8 @@ async function getActivities(inputId) {
     
   } else {
     try {
-
       const response = await fetch(`${BASE_URL}/${inputId}/activity`)
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -80,8 +108,8 @@ async function getAverageSessions(inputId) {
 
   } else {
     try {
-
       const response = await fetch(`${BASE_URL}/${inputId}/average-sessions`)
+      
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`)
       }
@@ -109,8 +137,8 @@ async function getUserPerformances(inputId) {
 
   } else {
     try {
-
       const response = await fetch(`${BASE_URL}/${inputId}/performance`)
+      
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`)
       }
