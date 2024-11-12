@@ -42,10 +42,9 @@ function CustomTooltip({ active, payload }) {
 function DailyBarChart ({daily}) {
    
   return (
-    <ResponsiveContainer width="100%" height="80%">
+    <ResponsiveContainer width="100%" height="80%" className="dailybarchart" >
       <BarChart
         width="100%"
-        // height={180}
         data={daily}
         margin={{ top: 10, right: 30, left: 20, bottom: 5 }}
         barGap={8}

@@ -1,7 +1,27 @@
-// A voir si besoin
+@use "../base/index" as base;
 
-.recharts-legend-wrapper {
-    ul {
-    justify-content: flex-end;
+.dailybarchart {
+    .recharts-legend-wrapper {
+        top: -15px !important;
+
+        ul {
+        justify-content: flex-end;
+        }
+    }
+
+    .custom-tooltip {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: base.$color-main;
+        color: white;
+        font-size: 9px;
+        font-weight: 500;    
+
+        p {
+            margin: 0 !important;
+            padding: 20px 10px;
+        }
     }
 }
