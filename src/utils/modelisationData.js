@@ -25,8 +25,7 @@ converToKCal.propTypes = {
  * @returns {number}
  */
 export function converToPercent(score) {
-  // let nombre = score
-  let pourcentage = score * 100 //Multiplication by 100 to convert to percentage
+  let pourcentage = score * 100 // Multiplication by 100 to convert to percentage
   return pourcentage + '%'
 }
 

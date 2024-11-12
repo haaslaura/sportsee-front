@@ -13,8 +13,8 @@ const isMock = true // switch between the mocked data and the API
 
 /**
  * Modify a key for a single user object
- * @param {object} userObject single user
- * @returns {object} single user with a modified key
+ * @param {object} userObject - single user
+ * @returns {object} - single user with a modified key
  */
 function renameKey(userObject) {
 
@@ -30,8 +30,8 @@ function renameKey(userObject) {
 
 /**
  * Get user informations
- * @param {number} inputId user id
- * @returns {Promise<Object>} data: informations of the user
+ * @param {number} inputId - user id
+ * @returns {Promise<Object>} - data: informations of the user
  */
 async function getUserInformations(inputId) {
 
@@ -66,8 +66,8 @@ async function getUserInformations(inputId) {
 
 /**
  * Get user activity information
- * @param {number} inputId user id
- * @returns {Promise<Object>} data: user activity information
+ * @param {number} inputId - user id
+ * @returns {Promise<Object>} - data: user activity information
  */
 async function getActivities(inputId) {
 
@@ -96,8 +96,8 @@ async function getActivities(inputId) {
 
 /**
  * Get user AverageSessions
- * @param {number} inputId user id
- * @returns {Promise<Object>} data: user AverageSessions
+ * @param {number} inputId - user id
+ * @returns {Promise<Object>} - data: user AverageSessions
  */
 async function getAverageSessions(inputId) {
 
@@ -125,8 +125,8 @@ async function getAverageSessions(inputId) {
 
 /**
  * Get user performance
- * @param {number} inputId user id
- * @returns {Promise<Object>} data : user performance
+ * @param {number} inputId - user id
+ * @returns {Promise<Object>} - data : user performance
  */
 async function getUserPerformances(inputId) {
 
