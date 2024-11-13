@@ -24,7 +24,7 @@ function CustomTooltip({ active, payload }) {
         {payload.map((item) => (
           <p key={item.dataKey}>
             {item.dataKey === 'kilogram' && `${item.value} Kg`}
-            {item.dataKey === 'calories' && `${modelisationData.converToKCal(item.value)} Kcal`}
+            {item.dataKey === 'calories' && `${item.value} Kcal`}
           </p>
         ))}
       </div>
@@ -40,12 +40,19 @@ function CustomTooltip({ active, payload }) {
  * @returns {JSX.Element} Responsive container with BarChart
  */
 function DailyBarChart ({daily}) {
+
+  // change the date and the calories to the desired format
+  const newDataDaily = daily.map((d) => ({
+    day: modelisationData.converToDate(d.day),
+    kilogram: d.kilogram,
+    calories: d.calories
+  }))
    
   return (
     <ResponsiveContainer className="dailybarchart" >
       <BarChart
         width="100%"
-        data={daily}
+        data={newDataDaily}
         margin={{ top: 10, right: 30, left: 20, bottom: 55 }}
         barGap={8}
         barSize={7}
@@ -60,14 +67,14 @@ function DailyBarChart ({daily}) {
       <XAxis
         dataKey="day"
         height={24}
-        tickFormatter={(day) => modelisationData.converToDate(day)}
         stroke="false"
         padding={{ left: 10, right: 10 }}
       />
 
       <YAxis
         type="number"
-        domain={[0, 'dataMax']}
+        // domain={["dataMin + 20", "dataMax"]}
+        domain={[0, "dataMax"]}
         stroke="false"
         orientation="right"
       />

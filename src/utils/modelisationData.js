@@ -5,19 +5,19 @@
 import PropTypes from 'prop-types'
 
 
-/**
- * Calorie Conversion
- * @param {number} calorie
- * @returns {string}
- */
-export function converToKCal(calorie) {
-  const kiloCal = calorie / 1000
-  return kiloCal.toFixed(3)
-}
+// /**
+//  * Calorie Conversion
+//  * @param {number} calorie
+//  * @returns {string}
+//  */
+// export function convertToKcal(calorie) {
+//   const kiloCal = calorie / 1000
+//   return kiloCal.toFixed(3)
+// }
 
-converToKCal.propTypes = {
-  calorie: PropTypes.number.isRequired
-}
+// convertToKcal.propTypes = {
+//   calorie: PropTypes.number.isRequired
+// }
 
 /**
  * Percentage conversion
@@ -101,7 +101,7 @@ translateEnglishToFrench.propTypes = {
 }
 
 export default {
-  converToKCal,
+  convertToKcal,
   getDayOfWeek,
   converToDate,
   converToPercent,

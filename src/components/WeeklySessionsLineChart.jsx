@@ -97,7 +97,7 @@ function WeeklySessionsLineChart ({sessions}) {
 
             <YAxis
                 hide
-                domain={["dataMin - 8", "dataMax + 8"]}
+                domain={["dataMin - 15", "dataMax + 10"]}
             />
                         
             <Tooltip // Display a tooltip on mouse-over
