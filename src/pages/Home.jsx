@@ -127,7 +127,7 @@ function Home() {
                 <div className="tracking performance">
                   <PerformancesRadarChart
                     kindsList={performances?.data?.kind}
-                    values={performances?.data?.data}
+                    performancesData={performances?.data?.data}
                   />
                 </div>
                 <div className="tracking score">

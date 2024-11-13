@@ -6,56 +6,43 @@ import {
   PolarRadiusAxis,
   Radar
 } from 'recharts'
+import modelisationData from '../utils/modelisationData'
 
 
-function PerformancesRadarChart ({ kindsList, values }) {
+/**
+ * PerformancesRadarChart component displays a radar chart to show user performance data
+ * @param {Object} props.kindsList - an object where keys are performance kind IDs and values are the corresponding categories
+ * @param {Array} props.performancesData - array of performance data objects
+ * @returns {JSX.Element} a responsive radar chart component visualizing the user's performance
+ */
+function PerformancesRadarChart ({ kindsList, performancesData }) {
 
-  // console.log(kindsList); // un objet contenant "1": "cardio", "2": "energy", etc.
-  // console.log(values); // tableau d'objet, valeurs + kind en numéro
-  
-
-  function changerLaValeurDeKind (listeDesTextes, tableauDobjetsAchanger) {
-    // je récupère un tableau des clés de l'objet kinds
-    const tableauDesCles = Object.keys(listeDesTextes)
-
-    // je parcours le tableau d'objets à changer
-    tableauDobjetsAchanger.forEach((objet) => {
-
-      // je regarde les clés de mon objet
-      Object.keys(objet).forEach((key) => {
-        if (key === "kind") {
-          // console.log(typeof(objet.kind)); // la valeur est un number
-          
-          // parcourir le tableauDesCles
-          tableauDesCles.forEach((item) => {
-
-            const valeurARemplacer = objet.kind
-            console.log(valeurARemplacer); // est la clé de l'objet kind, en texte
-            
-            if (parseInt(item) === valeurARemplacer) {
-              // changer la valeur
-              // objet.kind = listeDesTextes.item
-            }
-          })
-        }
-      })
+  /**
+   * Modify the value of kind in performancesData to correspond with category names in kindsList
+   */
+  const arrayOfKeys = Object.keys(kindsList)
+  performancesData.forEach((objet) => {
+    arrayOfKeys.forEach((key) => {
+      if (parseInt(key) === objet.kind) {
+        objet.kind = kindsList[key]
+      }
     })
+  })
 
-    return tableauDobjetsAchanger
-  }
-
-  console.log(changerLaValeurDeKind(kindsList, values));
-  
-
+  /**
+   * Create a new array of data where each kind is translated
+   */
+  const newData = performancesData.map((v) => ({
+    value: v.value,
+    kind: modelisationData.translateEnglishToFrench(v.kind)
+  }))
 
   
   return (
     <ResponsiveContainer>
       <RadarChart
-        // width={60}
-        // height={60}
         outerRadius={90}
-        data={values}
+        data={newData}
       >
         <PolarGrid
           gridType="polygon"

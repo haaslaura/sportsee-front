@@ -101,7 +101,7 @@ translateEnglishToFrench.propTypes = {
 }
 
 export default {
-  convertToKcal,
+  // convertToKcal,
   getDayOfWeek,
   converToDate,
   converToPercent,
