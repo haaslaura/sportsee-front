@@ -1,55 +1,91 @@
 import {
     ResponsiveContainer,
     RadialBarChart,
-    RadialBar,
-    Tooltip,
-    Legend
+    RadialBar
 } from "recharts"
+import modelisationData from "../utils/modelisationData"
 
 
-function CustomLabel({ props }) {
-    // console.log(props);
+function GoalRadialBarChart ({ score }) { 
+    
+    // On multiplie le score par 100 pour avoir le chiffre attendu
+    const scoreData = [{ name: 'Score', score: score.score * 100, fill: '#FF0101' }]
+    console.log(scoreData)    
     
     return (
-        <p>pouet</p>
-    )   
-}
-
-function GoalRadialBarChart ({ score }) {
-
-    const scoreArray = [score]
-    // console.log(scoreArray);
         
-    return (
-        <ResponsiveContainer>
+        <div style={{ position: 'relative', textAlign: 'center' }}>
+        <h4 style={{ position: 'absolute', top: '10%', left: '10%', fontWeight: 700, color: '#333' }}>
+        Score
+        </h4>
+        <ResponsiveContainer width="100%" height="100%">
 
-            <RadialBarChart 
-                width={730} 
-                height={250} 
-                innerRadius="90%" 
+            <RadialBarChart
+                // width={250}
+                // height={200}
+                cx="50%"
+                cy="50%"
+                innerRadius="70%"
                 outerRadius="80%"
-                // borderRadius={5}
-                // cornerRadius={10}
-                data={scoreArray} 
-                startAngle={220} 
-                endAngle={-40}
+                // startAngle={-20}
+                // endAngle={-20 + (score * 2.2)}
+                startAngle={90}
+                endAngle={450}
+                data={scoreData}
+                >
 
-                // barCategoryGap={0}
+                <RadialBar
+                minAngle={15}
+                background={{ fill: '#eee' }}
+                clockWise={false}
+                dataKey="score"
+                cornerRadius={10} // Arrondir les coins de la barre
+                barSize={10} // Épaisseur de la barre
+                />
+
+            </RadialBarChart>
+            
+            {/* <RadialBarChart
+            cx="50%"
+            cy="50%"
+            innerRadius="70%"
+            outerRadius="80%"
+            startAngle={90}
+            endAngle={450}
+            data={[{ name: 'Score', score: 80, fill: '#FF0101' }]}
             >
             <RadialBar
-                // minAngle={15}
-                // label={{ fill: '#282D30', position: 'insideStart' }}
-                label={<CustomLabel />}
-                background
-                clockWise={true}
-                dataKey='score' />
+            minAngle={15}
+            clockWise
+            dataKey="score"
+            cornerRadius={10}
+            barSize={10}
+            background={{ fill: '#eee' }}
+            />
+            </RadialBarChart> */}
             
-            {/* <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" /> */}
-            {/* <Tooltip /> */}
-            </RadialBarChart>
-
-        </ResponsiveContainer>
-    )
-}
-
-export default GoalRadialBarChart
+            
+            </ResponsiveContainer>
+            
+            {/* Texte au centre */}
+            <div
+            style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                textAlign: 'center',
+            }}
+            >
+            <p style={{ fontSize: '24px', fontWeight: 700, margin: 0, color: '#000' }}>
+            {scoreData[0].score}%
+            </p>
+            <p style={{ fontSize: '14px', fontWeight: 500, color: 'gray', margin: 0 }}>
+            de votre objectif
+            </p>
+            </div>
+            </div>
+        )
+    }
+    
+    export default GoalRadialBarChart

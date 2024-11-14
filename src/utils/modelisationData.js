@@ -25,8 +25,9 @@ import PropTypes from 'prop-types'
  * @returns {number}
  */
 export function converToPercent(score) {
-  let pourcentage = score * 100 // Multiplication by 100 to convert to percentage
-  return pourcentage + '%'
+  // let pourcentage = score * 100 // Multiplication by 100 to convert to percentage
+  // return pourcentage + '%'
+  return score * 100
 }
 
 converToPercent.propTypes = {
