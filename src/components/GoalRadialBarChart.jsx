@@ -1,91 +1,90 @@
 import {
     ResponsiveContainer,
     RadialBarChart,
-    RadialBar
+    RadialBar,
 } from "recharts"
-import modelisationData from "../utils/modelisationData"
 
 
-function GoalRadialBarChart ({ score }) { 
+/**
+ * GoalRadialBarChart is a component that displays a radial bar chart representing a score relative to a goal
+ * 
+ * @param {Object} props.userInfo - the user information object containing the score value
+ * @param {number} props.userInfo.score - a value between 0 and 1 representing the score (0 = 0%, 1 = 100%)
+ * @returns {JSX.Element} A radial bar chart showing the score progress toward the 100% goal
+ */
+function GoalRadialBarChart ({ userInfo }) { 
     
-    // On multiplie le score par 100 pour avoir le chiffre attendu
-    const scoreData = [{ name: 'Score', score: score.score * 100, fill: '#FF0101' }]
-    console.log(scoreData)    
+    // Multiply the score by 100 to get the expected figure
+    const scoreData = [{ name: 'Score', score: userInfo.score * 100, fill: '#FF0101' }] 
+
+    // Calculate the end angle (so that it is proportional to the score)
+    const startAngle = 100
+    const endAngle = startAngle + (userInfo.score * 360)
     
     return (
-        
-        <div style={{ position: 'relative', textAlign: 'center' }}>
-        <h4 style={{ position: 'absolute', top: '10%', left: '10%', fontWeight: 700, color: '#333' }}>
-        Score
-        </h4>
-        <ResponsiveContainer width="100%" height="100%">
-
-            <RadialBarChart
-                // width={250}
-                // height={200}
-                cx="50%"
-                cy="50%"
-                innerRadius="70%"
-                outerRadius="80%"
-                // startAngle={-20}
-                // endAngle={-20 + (score * 2.2)}
-                startAngle={90}
-                endAngle={450}
-                data={scoreData}
+        <>
+            <div style={{ position: 'relative' }}>
+                <h4 style={{
+                        position: 'absolute',
+                        top: 15,
+                        left: 20,
+                        fontSize: "15px",
+                        fontWeight: 500,
+                        color: "#20253A"
+                    }}
                 >
+                    Score
+                </h4>
+            </div>
+            <ResponsiveContainer width="100%" height="100%">
 
-                <RadialBar
-                minAngle={15}
-                background={{ fill: '#eee' }}
-                clockWise={false}
-                dataKey="score"
-                cornerRadius={10} // Arrondir les coins de la barre
-                barSize={10} // Épaisseur de la barre
-                />
+                <RadialBarChart
+                    cx="50%"
+                    cy="50%"
+                    innerRadius="70%"
+                    outerRadius="80%"
+                    startAngle={startAngle}
+                    endAngle={endAngle}
+                    data={scoreData}
+                    >
 
-            </RadialBarChart>
-            
-            {/* <RadialBarChart
-            cx="50%"
-            cy="50%"
-            innerRadius="70%"
-            outerRadius="80%"
-            startAngle={90}
-            endAngle={450}
-            data={[{ name: 'Score', score: 80, fill: '#FF0101' }]}
-            >
-            <RadialBar
-            minAngle={15}
-            clockWise
-            dataKey="score"
-            cornerRadius={10}
-            barSize={10}
-            background={{ fill: '#eee' }}
-            />
-            </RadialBarChart> */}
-            
-            
+                    <circle
+                        cx="50%"
+                        cy="50%"
+                        r="27%"
+                        fill="#FFF"
+                    />
+
+                    <text
+                        x="50%"
+                        y="46%"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        style={{ fontSize: '24px', fontWeight: 700, fill: '#000' }}
+                    >
+                        {scoreData[0].score}%
+                    </text>
+                    <text
+                        x="50%"
+                        y="56%" // Position slightly below the first text
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        style={{ fontSize: '14px', fontWeight: 500, fill: 'gray' }}
+                    >
+                        de votre objectif
+                    </text>
+
+                    <RadialBar
+                        minAngle={15}
+                        background={false}
+                        dataKey="score"
+                        barSize={10}
+                        cornerRadius={10}
+                    />
+                </RadialBarChart>               
             </ResponsiveContainer>
-            
-            {/* Texte au centre */}
-            <div
-            style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                textAlign: 'center',
-            }}
-            >
-            <p style={{ fontSize: '24px', fontWeight: 700, margin: 0, color: '#000' }}>
-            {scoreData[0].score}%
-            </p>
-            <p style={{ fontSize: '14px', fontWeight: 500, color: 'gray', margin: 0 }}>
-            de votre objectif
-            </p>
-            </div>
-            </div>
-        )
-    }
+        </>
+    )
+}
     
-    export default GoalRadialBarChart
+export default GoalRadialBarChart

@@ -581,58 +581,40 @@ main .main-container {
 /********* Be careful **********/
 /* @import usage is deprecated */
 /*******************************/
-.dailybarchart .recharts-legend-wrapper {
-  top: -15px !important;
+.container .container__header {
+  margin-bottom: 1.8rem;
 }
-.dailybarchart .recharts-legend-wrapper ul {
-  justify-content: flex-end;
+.container .container__header h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
 }
-.dailybarchart .custom-tooltip {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #FF0000;
-  color: white;
-  font-size: 9px;
-  font-weight: 500;
-}
-.dailybarchart .custom-tooltip p {
-  margin: 0 !important;
-  padding: 20px 10px;
-}
-
-/********* Be careful **********/
-/* @import usage is deprecated */
-/*******************************/
-.container .container__header span {
+.container .container__header h1 span {
   color: #FF0000;
 }
-.container .container__header a {
+.container .container__header h1 a {
   color: #FF0000;
 }
-.container .container__header a:hover {
+.container .container__header h1 a:hover {
   text-decoration: underline;
+}
+.container .container__header p {
+  margin: 0;
 }
 .container .container__tracking {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 300px 260px;
+  grid-template-rows: 260px 240px;
   grid-gap: 25px;
-  border: 1px red solid;
 }
 .container .container__tracking .tracking {
   border-radius: 5px;
 }
-.container .container__tracking .daily {
+.container .container__tracking .daily, .container .container__tracking .score {
   background: #FBFBFB;
-  font-size: 15px;
-  font-weight: 500;
+}
+.container .container__tracking .daily {
   grid-column: 1/4;
   grid-row: 1/2;
-}
-.container .container__tracking .daily p {
-  margin: 20px 0 0 20px;
 }
 .container .container__tracking .macro {
   margin: 0;
@@ -656,7 +638,6 @@ main .main-container {
   grid-row: 2/3;
 }
 .container .container__tracking .score {
-  background: #FBFBFB;
   grid-column: 3/4;
   grid-row: 2/3;
 }

@@ -6,7 +6,7 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  Bar
+  Bar,
 } from "recharts"
 import modelisationData from "../utils/modelisationData"
 
@@ -20,9 +20,20 @@ import modelisationData from "../utils/modelisationData"
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "#FF0101",
+          color: "white",
+          fontSize: "9px",
+          fontWeight: 500,
+          padding: "20px 20px 0 20px", // Adjusted padding directly in style
+        }}>
         {payload.map((item) => (
-          <p key={item.dataKey}>
+          <p key={item.dataKey} style={{margin: "0 0 20px 0"}} >
             {item.dataKey === 'kilogram' && `${item.value} Kg`}
             {item.dataKey === 'calories' && `${item.value} Kcal`}
           </p>
@@ -49,64 +60,96 @@ function DailyBarChart ({daily}) {
   }))
    
   return (
-    <ResponsiveContainer className="dailybarchart" >
-      <BarChart
-        width="100%"
-        data={newDataDaily}
-        margin={{ top: 10, right: 30, left: 20, bottom: 55 }}
-        barGap={8}
-        barSize={7}
+    <>
+    <div style={{
+      position: "relative",
+    }}>
+      <p 
+        style={{
+          fontSize: "15px",
+          fontWeight: 500,
+          color: "#20253A",
+          margin: 0,
+          position: "absolute",
+          top: 22,
+          left: 20,
+          zIndex: 3,
+        }}
       >
+        Activité quotidiennes
+      </p>
+    </div>
 
-      <CartesianGrid // Grid display and options
-        vertical={false}
-        stroke="#dedede"
-        strokeDasharray="2"
-      />
-      
-      <XAxis
-        dataKey="day"
-        height={24}
-        stroke="false"
-        padding={{ left: 10, right: 10 }}
-      />
+      <ResponsiveContainer width="100%" height="100%" >
 
-      <YAxis
-        type="number"
-        // domain={["dataMin + 20", "dataMax"]}
-        domain={[0, "dataMax"]}
-        stroke="false"
-        orientation="right"
-      />
-      
-      <Tooltip // Display a tooltip on mouse-over
-        content={<CustomTooltip />}
-        offset={15}
-      />
+        <BarChart
+          data={newDataDaily}
+          margin={{ top: 50, right: 20, left: 20, bottom: 20 }}
+          barGap={8}
+          barSize={7}
+        >
 
-      <Legend // Chart legend
-        verticalAlign="top"
-        align="right"
-      /> 
+        <CartesianGrid // Grid display and options
+          vertical={false}
+          stroke="#dedede"
+          strokeDasharray="2"
+        />
+        
+        <XAxis
+          dataKey="day"
+          height={24}
+          stroke="false"
+          padding={{ left: 10, right: 10 }}
+        />
 
-      <Bar
-        dataKey="kilogram"
-        fill="#282D30"
-        legendType="circle"
-        radius={[20, 20, 0, 0]}
-        unit="kg"
-        name="Poids (kg)"
-      />
-      <Bar
-        dataKey="calories"
-        fill="#FF0000"
-        legendType="circle"
-        radius={[20, 20, 0, 0]}
-        unit="Kcal"
-        name="Calories brûlées (KCal)"
-      />
-      </BarChart>
-    </ResponsiveContainer>
+        <YAxis
+          type="number"
+          domain={[0, "dataMax"]}
+          stroke="false"
+          orientation="right"
+        />
+        
+        <Tooltip // Display a tooltip on mouse-over
+          content={<CustomTooltip />}
+          offset={15}
+        />
+
+        <Legend // Chart legend
+          verticalAlign="top"
+          height={32}
+          wrapperStyle={{
+            fontSize: "14px",
+            fontWeight: 500,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            position: "absolute",
+            top: 16,
+            right: 20,
+            zIndex: 2
+          }}
+        />
+
+        <Bar
+          dataKey="kilogram"
+          fill="#282D30"
+          legendType="circle"
+          radius={[20, 20, 0, 0]}
+          unit="kg"
+          name="Poids (kg)"
+        />
+        <Bar
+          dataKey="calories"
+          fill="#FF0000"
+          legendType="circle"
+          radius={[20, 20, 0, 0]}
+          unit="Kcal"
+          name="Calories brûlées (KCal)"
+        />
+
+        </BarChart>
+      </ResponsiveContainer>
+    </> 
   )
 }
 

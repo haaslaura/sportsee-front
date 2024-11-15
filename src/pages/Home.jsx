@@ -29,11 +29,9 @@ function Home() {
   const [performances, setPerformances] = useState(null)
   const [isLoading, setLoading] = useState(true)
 
-
   useEffect(() => {
     
     setLoading(true)
-
     /**
      * Call the dataRecovery utils, to recover the data
      * @return {Object} Data
@@ -82,7 +80,6 @@ function Home() {
               <section className="container__tracking">
 
                 <div className="tracking daily">
-                  <p>Activité quotidienne</p>
                   <DailyBarChart 
                     daily={activities?.data?.sessions}
                   />
@@ -124,15 +121,17 @@ function Home() {
                     sessions={averageSessions?.data?.sessions}
                   />
                 </div>
+
                 <div className="tracking performance">
                   <PerformancesRadarChart
                     kindsList={performances?.data?.kind}
                     performancesData={performances?.data?.data}
                   />
                 </div>
+
                 <div className="tracking score">
                   <GoalRadialBarChart
-                    score={user?.data}
+                    userInfo={user?.data}
                   />
                 </div>
 
