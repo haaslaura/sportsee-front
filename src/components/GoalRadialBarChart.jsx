@@ -28,7 +28,7 @@ function GoalRadialBarChart ({ userInfo }) {
                         position: 'absolute',
                         top: 15,
                         left: 20,
-                        fontSize: "15px",
+                        fontSize: "0.9rem",
                         fontWeight: 500,
                         color: "#20253A"
                     }}
@@ -60,7 +60,7 @@ function GoalRadialBarChart ({ userInfo }) {
                         y="46%"
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        style={{ fontSize: '24px', fontWeight: 700, fill: '#000' }}
+                        style={{ fontSize: "1.5rem", fontWeight: 700, fill: "#000" }}
                     >
                         {scoreData[0].score}%
                     </text>
@@ -69,7 +69,7 @@ function GoalRadialBarChart ({ userInfo }) {
                         y="56%" // Position slightly below the first text
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        style={{ fontSize: '14px', fontWeight: 500, fill: 'gray' }}
+                        style={{ fontSize: "0.8rem", fontWeight: 500, fill: "gray" }}
                     >
                         de votre objectif
                     </text>

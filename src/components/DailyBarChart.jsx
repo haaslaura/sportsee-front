@@ -28,7 +28,7 @@ function CustomTooltip({ active, payload }) {
           alignItems: "center",
           background: "#FF0101",
           color: "white",
-          fontSize: "9px",
+          fontSize: "0.56rem",
           fontWeight: 500,
           padding: "20px 20px 0 20px", // Adjusted padding directly in style
         }}>
@@ -66,7 +66,7 @@ function DailyBarChart ({daily}) {
     }}>
       <p 
         style={{
-          fontSize: "15px",
+          fontSize: "0.9rem",
           fontWeight: 500,
           color: "#20253A",
           margin: 0,
@@ -118,7 +118,7 @@ function DailyBarChart ({daily}) {
           verticalAlign="top"
           height={32}
           wrapperStyle={{
-            fontSize: "14px",
+            fontSize: "0.8rem",
             fontWeight: 500,
             display: "flex",
             alignItems: "center",
