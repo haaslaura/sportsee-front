@@ -37,19 +37,21 @@ function PerformancesRadarChart ({ kindsList, performancesData }) {
     kind: modelisationData.translateEnglishToFrench(v.kind)
   }))
 
+  // Notes: the size of the texts could be adapted for optimal rendering on small screens.
+  // Solutions such as adding margins or giving texts an angle have been tested.
   
   return (
     <ResponsiveContainer width="100%" height="100%" >
       <RadarChart
-        outerRadius={75}
+        outerRadius={70}
+        // outerRadius="70%"
         data={newData}
-        // width="100%"
-        // height="100%"
+        // margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
       >
         <PolarGrid // The cutting grid in the background
           gridType="polygon"
           radialLines={false}
-          polarRadius={[0, 14, 27, 40, 60, 75]}
+          polarRadius={[0, 14, 27, 40, 56, 70]}
           stroke="#fff"
         />
 
@@ -58,15 +60,15 @@ function PerformancesRadarChart ({ kindsList, performancesData }) {
           stroke="#fff"
           tickLine={false}
           style={{
-            fontSize: "12px",
-            fontWeight: 500
+            fontSize: "0.75rem",
+            fontWeight: 500,
           }}
+          // angle={20}
         />
 
         <PolarRadiusAxis // The values axis
           tick={false}
           axisLine={false}
-          angle={30}
           domain={[0, 'dataMax + 10']}          
         />
 
