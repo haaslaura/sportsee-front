@@ -20,9 +20,9 @@ L'API du backend sera alors accessible en local via l'URL [http://localhost:3000
 Documentation et liste des endpoints [ici](https://github.com/OpenClassrooms-Student-Center/SportSee?tab=readme-ov-file#1-general-information).
 
 ### Frontend
-Ce repository contient la version front-end du projet.
+Ce repository en cours de consultation contient la version front-end du projet.
 
-Lancer le frontend comme suit :
+Une fois le projet récupéré via `git clone https://github.com/haaslaura/sportsee-front.git`, lancer le frontend comme suit :
 
 Pour installer les dépendances : `yarn`
 

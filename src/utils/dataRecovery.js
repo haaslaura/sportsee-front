@@ -9,7 +9,7 @@ import performances from "../mocksdata/performances.json"
 import averageSessions from "../mocksdata/averageSessions.json"
 
 const BASE_URL = "http://localhost:3000/user"
-const isMock = true // switch between the mocked data and the API
+const isMock = false // switch between the mocked data and the API
 
 /**
  * Modify a key for a single user object
