@@ -12,7 +12,7 @@ function Macronutrients ({ icon, data, text, typeClass }) {
                 ) : (
                     <p className="infobox__text-data">{data}g</p>
                 )}
-                <h4 className="infobox__text-datatype">{text}</h4>  
+                <h3 className="infobox__text-datatype">{text}</h3>  
             </div>
         </li>
      )

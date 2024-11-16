@@ -1,18 +1,19 @@
-@use "../base/index" as base;
+@use "../base/index" as *;
 
 .temporary-container {
     
-    h1 {
+    h1, h2 {
+        margin-bottom: 1rem;
         span {
-            color: base.$color-main;
+            color: $color-main;
         }
     }
 
     .temporary-container__links {
-        margin-top: 30px;
+        margin-top: 2rem;
 
         a {
-            color: base.$color-main;
+            color: $color-main;
             margin-right: 30px;
 
             &:hover {

@@ -1,4 +1,4 @@
-@use "../base/index" as base;
+@use "../base/index" as *;
 
 .loader-container {
     display: flex;
@@ -25,8 +25,8 @@
         height: 64px;
         margin: 8px;
         border-radius: 50%;
-        border: 6.4px solid base.$color-main;
-        border-color: base.$color-main transparent base.$color-main transparent;
+        border: 6.4px solid $color-main;
+        border-color: $color-main transparent $color-main transparent;
         animation: loader-dual-ring 1.2s linear infinite;
     }
 

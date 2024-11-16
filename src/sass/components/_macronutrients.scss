@@ -1,4 +1,4 @@
-@use "../base/index" as base;
+@use "../base/index" as *;
 
 .infobox, .infobox__icon {
     display: flex;
@@ -10,16 +10,16 @@
     flex-wrap: nowrap;
     
     width: 100%;
-    min-width: 200px;
+    min-width: 190px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px 0px #00000005;
-    background: #FBFBFB;
+    background: $grey-light;
 
     .infobox__icon {
         justify-content: center;
         width: 60px;
         height: 60px;
-        margin: 20px;
+        margin: 15px;
 
         &.calories {background: rgb(255 0 0 / 11%);}
         &.proteines {background: rgb(74 184 255 / 11%);}
@@ -33,14 +33,13 @@
         .infobox__text-data {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #282D30;
-            margin: 0 0 0.6rem 0;
+            color: $grey-dark;
+            margin-bottom: 0.6rem;
         }
         .infobox__text-datatype {
             font-size: 0.87rem;
             font-weight: 500;
             color: #74798C;
-            margin: 0;
         }
     }
 }

@@ -4,36 +4,6 @@
 
 import PropTypes from 'prop-types'
 
-
-// /**
-//  * Calorie Conversion
-//  * @param {number} calorie
-//  * @returns {string}
-//  */
-// export function convertToKcal(calorie) {
-//   const kiloCal = calorie / 1000
-//   return kiloCal.toFixed(3)
-// }
-
-// convertToKcal.propTypes = {
-//   calorie: PropTypes.number.isRequired
-// }
-
-/**
- * Percentage conversion
- * @param {number} score
- * @returns {number}
- */
-export function converToPercent(score) {
-  // let pourcentage = score * 100 // Multiplication by 100 to convert to percentage
-  // return pourcentage + '%'
-  return score * 100
-}
-
-converToPercent.propTypes = {
-  score: PropTypes.number.isRequired
-};
-
 /**
  * Function to retrieve only the day of a date
  * @param {string} date
@@ -102,9 +72,7 @@ translateEnglishToFrench.propTypes = {
 }
 
 export default {
-  // convertToKcal,
   getDayOfWeek,
   converToDate,
-  converToPercent,
   translateEnglishToFrench
 }

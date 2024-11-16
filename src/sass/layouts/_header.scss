@@ -1,4 +1,4 @@
-@use "../base/index" as base;
+@use "../base/index" as *;
 
 header,
 ul {
@@ -11,9 +11,9 @@ header {
     justify-content: start;
     align-items: center;
     gap: 6rem;
-    background-color: base.$color-dark;
+    background-color: $color-dark;
     box-shadow: 0px 4px 4px 0px #00000040;
-    height: base.$header-height;
+    height: $header-height;
     width: 100%;
 
     .mainlogo {
@@ -33,7 +33,7 @@ header {
             li,
             a {
                 color: white;
-                font-weight: base.$font-weight-bold;
+                font-weight: $font-weight-bold;
                 font-size: 1.5rem;
             }
         }

@@ -1,4 +1,4 @@
-@use "../base/index" as base;
+@use "../base/index" as *;
 
 .sports-icon {
     display: flex;
@@ -16,7 +16,7 @@
     }
 
     &:focus-visible {
-        outline: 2px solid base.$color-main;
+        outline: 2px solid $color-main;
     }
 
     img {

@@ -10,6 +10,7 @@ import {
 } from "recharts"
 import modelisationData from "../utils/modelisationData"
 
+
 /**
  * Component that renders a custom cursor on the chart
  * @param {Object} props
@@ -59,12 +60,13 @@ function CustomTooltip({ active, payload }) {
  * @param {Array} props.sessions - array of session data, with day and sessionLength properties
  * @returns {JSX.Element} - ResponsiveContainer with the line chart
  */
-function WeeklySessionsLineChart ({sessions}) {    
+function WeeklySessionsLineChart ({sessions}) {   
+
     return (
-        <ResponsiveContainer>
+        <ResponsiveContainer width="100%" height="100%" >
             <LineChart
                 data={sessions}
-                margin={{ top: 35, right: -1, left: -1, bottom: 20 }}
+                margin={{ top: 30, right: 0, left: 0, bottom: 20 }}
             >
 
             {/* Create a gradient for the line */}
@@ -87,12 +89,26 @@ function WeeklySessionsLineChart ({sessions}) {
                 dataKey="day"
                 height={24}
                 tickFormatter={(day) => modelisationData.getDayOfWeek(day)}
+                // tickFormatter={(day) => {
+                //     if (typeof day === "string" && day.startsWith("fake")) {
+                //         return ""; // Retourne une chaîne vide pour masquer la légende
+                //     }
+                //     return modelisationData.getDayOfWeek(day) // Traite normalement les autres jours
+                // }
+                // }
                 stroke="false"
                 style={{
                     fill: "rgba(255, 255, 255, 0.5)",
                 }}
                 minTickGap={0}
-                padding={{ left: 20, right: 20 }} // ERREUR ICI
+                // tickSize={20}
+                tick={{
+                    stroke: 'green',
+                    strokeWidth: 2,
+                    margin: 20,
+                    padding: 20
+                }}
+                // mirror={true}
             />
 
             <YAxis

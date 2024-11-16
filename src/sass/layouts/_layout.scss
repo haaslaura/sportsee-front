@@ -1,7 +1,8 @@
-@use "../base/index" as base;
+@use "../base/index" as *;
 
 main {
-    height: calc(100vh - base.$header-height);
+    min-height: 100%;
+    height: calc(100vh - $header-height);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -9,7 +10,7 @@ main {
     position: relative; // to fix the second navbar
 
     .main-container {
-        width: 80%;
+        width: 82%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 3%;

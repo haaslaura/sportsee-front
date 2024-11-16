@@ -39,32 +39,39 @@ function PerformancesRadarChart ({ kindsList, performancesData }) {
 
   
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width="100%" height="100%" >
       <RadarChart
-        outerRadius={90}
+        outerRadius={75}
         data={newData}
+        // width="100%"
+        // height="100%"
       >
-        <PolarGrid
+        <PolarGrid // The cutting grid in the background
           gridType="polygon"
           radialLines={false}
-          polarRadius={[0, 10, 27, 49, 72, 90]}
+          polarRadius={[0, 14, 27, 40, 60, 75]}
           stroke="#fff"
         />
 
-        <PolarAngleAxis
+        <PolarAngleAxis // The kinds axis
           dataKey="kind"
           stroke="#fff"
           tickLine={false}
+          style={{
+            fontSize: "12px",
+            fontWeight: 500
+          }}
         />
 
-        <PolarRadiusAxis
+        <PolarRadiusAxis // The values axis
           tick={false}
           axisLine={false}
           angle={30}
           domain={[0, 'dataMax + 10']}          
         />
 
-        <Radar dataKey="value"
+        <Radar // Visual rendering of data distribution
+          dataKey="value"
           fill="#FF0101"
           fillOpacity={0.6}
         />
