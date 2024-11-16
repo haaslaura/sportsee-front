@@ -20,16 +20,15 @@ import modelisationData from "../utils/modelisationData"
  * @returns {JSX.Element} - the custom cursor as a rectangular overlay
  */
 function CustomCursor(props) {
-    const { points, width, height } = props    
+    const { points, width, height } = props  
     const { x } = points[0]
     
     return (
         <Rectangle
             style={{ fill: "rgba(0, 0, 0, 0.1)" }}
             x={x}
-            z={99}
             width={width}
-            height={height *2}
+            height={height * 2}
         />
     )
 }
@@ -63,10 +62,32 @@ function CustomTooltip({ active, payload }) {
 function WeeklySessionsLineChart ({sessions}) {   
 
     return (
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+            {/* Solution for displaying the X axis legend with a margin and respecting the website model */}
+            {/* However, I don't think it's very satisfactory, as the user loses out on quality of service */}
+            <div
+                style={{
+                    position: "absolute",
+                    bottom: 15,
+                    left: "10%",
+                    right: "10%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    color: "rgba(255, 255, 255, 0.5)",
+                    fontSize: "0.75rem",
+                    fontWeight: 500,
+                }}
+            >
+                {/* Simulated XAxis legend */}
+                {sessions.map((session) => (
+                    <span key={session.day}>{modelisationData.getDayOfWeek(session.day)}</span>
+                ))}
+            </div>
+
         <ResponsiveContainer width="100%" height="100%" >
             <LineChart
                 data={sessions}
-                margin={{ top: 30, right: 0, left: 0, bottom: 20 }}
+                margin={{ top: 30, right: 0, left: 0, bottom: 0 }}
             >
 
             {/* Create a gradient for the line */}
@@ -84,36 +105,26 @@ function WeeklySessionsLineChart ({sessions}) {
                     />
                 </linearGradient>
             </defs>
-            
+
             <XAxis
                 dataKey="day"
                 height={24}
-                tickFormatter={(day) => modelisationData.getDayOfWeek(day)}
-                // tickFormatter={(day) => {
-                //     if (typeof day === "string" && day.startsWith("fake")) {
-                //         return ""; // Retourne une chaîne vide pour masquer la légende
-                //     }
-                //     return modelisationData.getDayOfWeek(day) // Traite normalement les autres jours
-                // }
-                // }
                 stroke="false"
-                style={{
-                    fill: "rgba(255, 255, 255, 0.5)",
-                }}
-                minTickGap={0}
-                // tickSize={20}
-                tick={{
-                    stroke: 'green',
-                    strokeWidth: 2,
-                    margin: 20,
-                    padding: 20
-                }}
-                // mirror={true}
+
+                // 1) The first solution envisaged for displaying the legend :
+                // tickFormatter={(day) => modelisationData.getDayOfWeek(day)}
+
+                // 2) Second solution, to obtain a margin in the legend:
+                tick={false} // Cacher la barre native
+                // We mask style if we hide the native bar :
+                // style={{
+                //     fill: "rgba(255, 255, 255, 0.5)",
+                // }}
             />
 
             <YAxis
                 hide
-                domain={["dataMin - 15", "dataMax + 10"]}
+                domain={["dataMin - 10", "dataMax + 10"]}
             />
                         
             <Tooltip // Display a tooltip on mouse-over
@@ -150,6 +161,7 @@ function WeeklySessionsLineChart ({sessions}) {
             
             </LineChart>
         </ResponsiveContainer>
+        </div>
     )
 }
 
