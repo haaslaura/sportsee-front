@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 
-// CAREFULL: must replace <Temporary /> by <Home /> before the end
+// CAREFULL: must replace <Temporary /> by <Home /> before deploying the application !
 import Temporary from "../pages/Temporary"
+// import Home from "../pages/Home"
 
 /**
-  * Displays an error message if no user data is loaded
-  */
+ * NoBodyHere Component
+ * Displays an error message when no user data is available.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
 function NoBodyHere () {
     return (
         <div className="container__header">

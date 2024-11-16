@@ -20,6 +20,14 @@ import PerformancesRadarChart from "../components/PerformancesRadarChart"
 import GoalRadialBarChart from "../components/GoalRadialBarChart"
 
 
+/**
+ * Main homepage component for SportSee.
+ * Fetches and displays user data, including activity, performance, and nutritional information.
+ * Renders a dashboard with various charts and components based on the user ID from the route.
+ * 
+ * @component
+ * @returns {JSX.Element}
+ */
 function Home() {
 
   let { id } = useParams()
@@ -33,8 +41,8 @@ function Home() {
     
     setLoading(true)
     /**
-     * Call the dataRecovery utils, to recover the data
-     * @return {Object} Data
+     * Fetches user data from the backend
+     * Uses the `dataRecovery` utility to retrieve user, activity, session, and performance data
      **/
     const fetchData = async () => {
       try {

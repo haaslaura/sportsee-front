@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import Temporary from './Temporary';
 
+
+/**
+ * Displays a 404 error page when the requested route does not exist
+ * 
+ * @component
+ * @returns {JSX.Element}
+ */
 function Error() {
     return (
         <div className="error-container">

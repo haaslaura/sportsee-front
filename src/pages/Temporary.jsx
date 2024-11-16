@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import Home from './Home';
 
-// Temporary page for the demonstration purposes
-// File to be deleted before going online
 
+/**
+ * Temporary home page for demonstration purposes
+ * Provides links to profiles of two example users (ID 12 and ID 18)
+ * 
+ * @component
+ * @returns {JSX.Element}
+ * 
+ * @note This file must be deleted before deploying the application !
+ */
 function Temporary() {
 
     return (

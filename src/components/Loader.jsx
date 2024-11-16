@@ -1,3 +1,10 @@
+/**
+ * Loader Component
+ * Displays a loading animation during data fetching or processing
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
 function Loader () {
 
     return (
