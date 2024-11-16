@@ -3,14 +3,6 @@
 Développez un tableau de bord d'analytics avec React
 
 ## Utilisation
-### Frontend
-Ce repository contient la version front-end du projet.
-
-Pour lancer le projet en dev mode : `yarn start`
-
-Ouvrez [http://localhost:3001](http://localhost:3001) pour l'afficher dans votre navigateur.
-
-La page se rechargera lorsque vous effectuerez des modifications. Vous pourrez également voir les erreurs dans la console.
 
 ### Backend
 Cloner le repository via :
@@ -26,6 +18,19 @@ Pour lancer l'API : `yarn dev`
 L'API du backend sera alors accessible en local via l'URL [http://localhost:3000](http://localhost:3000)
 
 Documentation et liste des endpoints [ici](https://github.com/OpenClassrooms-Student-Center/SportSee?tab=readme-ov-file#1-general-information).
+
+### Frontend
+Ce repository contient la version front-end du projet.
+
+Lancer le frontend comme suit :
+
+Pour installer les dépendances : `yarn`
+
+Pour lancer react : `yarn start`
+
+Ouvrez [http://localhost:3001](http://localhost:3001) pour l'afficher dans votre navigateur.
+
+La page se rechargera lorsque vous effectuerez des modifications. Vous pourrez également voir les erreurs dans la console.
 
 ## Scénario
 Vous travaillez en tant que développeur chez SportSee, une startup dédiée au coaching sportif. L’entreprise va lancer une nouvelle version de la page profil de l’utilisateur, lui permettant de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées. Vous êtes en charge de développer cette nouvelle feature.
