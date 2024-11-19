@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 // IMAGES
 import energyIcon from "../assets/icon-energy.svg"
@@ -37,7 +37,13 @@ function Home() {
   const [performances, setPerformances] = useState(null)
   const [isLoading, setLoading] = useState(true)
 
+  const didFetch = useRef(false)
+
   useEffect(() => {
+
+    // UseRef to check whether a call has already been made
+    if (didFetch.current) return; // Prevent a second call
+    didFetch.current = true; // Marks the effect as already executed
     
     setLoading(true)
     /**
@@ -47,21 +53,30 @@ function Home() {
     const fetchData = async () => {
       try {
         
-        const responseUser = await dataRecovery.getUserInformations(id)
-        setUser(responseUser)
-        
-        const responseUserActivityInformations = await dataRecovery.getActivities(id);
-        setActivities(responseUserActivityInformations)    
-  
-        const responseUserAverageSessions = await dataRecovery.getAverageSessions(id)
-        setAverageSessions(responseUserAverageSessions)
-        
-        const responseUserPerformance = await dataRecovery.getUserPerformances(id)
-        setPerformances(responseUserPerformance)
+        const [
+          responseUser,
+          responseActivities,
+          responseAverageSessions,
+          responsePerformances
+        ] = await Promise.all([
+          dataRecovery.getUserInformations(id),
+          dataRecovery.getActivities(id),
+          dataRecovery.getAverageSessions(id),
+          dataRecovery.getUserPerformances(id),
+        ]);
+    
+        setUser(responseUser);
+        setActivities(responseActivities);
+        setAverageSessions(responseAverageSessions);
+        setPerformances(responsePerformances);
   
       } catch (error) {
-        alert("Une erreur est survenue lors du chargement des données.")
-      
+        console.error("Erreur lors de la récupération des données : ", error);
+
+        if (!user) {
+          alert("Une erreur est survenue lors du chargement des données.");
+        }
+        
       } finally {
         setLoading(false)
       }
