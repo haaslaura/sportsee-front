@@ -1,4 +1,4 @@
-# Projet 12, formation Openclassrooms - Parcours Front-end (en cours)
+# Projet 12, formation Openclassrooms - Parcours Front-end
 ## SportSee
 Développez un tableau de bord d'analytics avec React
 
